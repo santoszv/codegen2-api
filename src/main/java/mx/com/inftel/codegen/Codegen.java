@@ -22,21 +22,22 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks an JPA Entity for process with Codegen Annotation Processing Tool.
+ * Marks an JPA Entity for process with Codegen2 Annotation Processing Tool.
  */
+@SuppressWarnings("unused")
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Codegen {
 
     /**
-     * Classname of generated code for CRUD.
+     * Classname for CRUD.
      *
      * @return Classname
      */
     String crud() default "";
 
     /**
-     * Classname of generated code for DTO.
+     * Classname for DTO.
      *
      * @return Classname
      */
