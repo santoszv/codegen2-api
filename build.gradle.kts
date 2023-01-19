@@ -22,15 +22,14 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
+tasks.withType<Javadoc>().configureEach {
+    options.encoding = "UTF-8"
+}
+
 publishing {
     repositories {
         maven {
             setUrl(file("$projectDir/build/repo"))
-//            setUrl("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-//            credentials {
-//                username = ""
-//                password = ""
-//            }
         }
     }
 

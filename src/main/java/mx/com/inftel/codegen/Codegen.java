@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks an JPA Entity for process with Codegen2 Annotation Processing Tool.
+ * Marks an JPA class for processing with Codegen2 Annotation Processing Tool.
  */
 @SuppressWarnings("unused")
 @Target({ElementType.TYPE})
@@ -31,6 +31,7 @@ public @interface Codegen {
 
     /**
      * Classname for CRUD.
+     * <p>The new class is generated in the same package as JPA class.</p>
      *
      * @return Classname
      */
@@ -38,9 +39,18 @@ public @interface Codegen {
 
     /**
      * Classname for DTO.
+     * <p>The new class is generated in the same package as JPA class.</p>
      *
      * @return Classname
      */
     String dto() default "";
+
+    /**
+     * Classname for DTI.
+     * <p>The new class is generated in the same package as JPA class.</p>
+     *
+     * @return Classname
+     */
+    String dti() default "";
 
 }
