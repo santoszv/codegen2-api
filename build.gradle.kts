@@ -11,6 +11,13 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+
+    // Jakarta EE
+    compileOnly("jakarta.platform:jakarta.jakartaee-api:10.0.0")
+
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
