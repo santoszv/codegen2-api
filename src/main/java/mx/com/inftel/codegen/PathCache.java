@@ -28,12 +28,16 @@ public class PathCache<X> {
         //
         int lastPointIndex = path.lastIndexOf('.');
         if (lastPointIndex == -1) {
-            return cache.put(path, root.get(path));
+            Path<Object> result = root.get(path);
+            cache.put(path, result);
+            return result;
         } else {
             String parent = path.substring(0, lastPointIndex);
             String prop = path.substring(lastPointIndex + 1);
             Path<?> parentPath = getPath(parent);
-            return cache.put(path, parentPath.get(prop));
+            Path<Object> result = parentPath.get(prop);
+            cache.put(path, result);
+            return result;
         }
     }
 
