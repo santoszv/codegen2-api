@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+@SuppressWarnings("unused")
 public class PathCache<X> {
 
     protected final Root<X> root;
@@ -35,21 +36,19 @@ public class PathCache<X> {
             String parent = path.substring(0, lastPointIndex);
             String prop = path.substring(lastPointIndex + 1);
             Path<?> parentPath = getPath(parent);
-            Path<Object> result = parentPath.get(prop);
+            Path<?> result = parentPath.get(prop);
             cache.put(path, result);
             return result;
         }
-    }
-
-    public <T> Path<Comparable<T>> getComparablePath(String path) {
-        @SuppressWarnings("unchecked")
-        Path<Comparable<T>> result = (Path<Comparable<T>>) getPath(path);
-        return result;
     }
 
     public <T> Path<T> getTypedPath(String path) {
         @SuppressWarnings("unchecked")
         Path<T> result = (Path<T>) getPath(path);
         return result;
+    }
+
+    public <T> Path<Comparable<T>> getComparablePath(String path) {
+        return getTypedPath(path);
     }
 }

@@ -53,4 +53,13 @@ public @interface Codegen {
      */
     String dti() default "";
 
+    /**
+     * Suffix name for methods.
+     * <p>The methods will use this name as the common suffix, in example,
+     * with "User" the CRUD will have "findUser", "countUser", "listUser",
+     * etc.</p>
+     *
+     * @return Suffix name
+     */
+    String methods() default "";
 }
